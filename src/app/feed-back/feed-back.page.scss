@@ -1,0 +1,10 @@
+span{
+    text-align: center !important;
+    justify-self: center;
+    justify-content: center;
+}
+ion-item:focus{
+    --highlight-color-focused: var(--ion-color-primary, #FE5E00) !important;
+    outline-color: #FE5E00 !important;
+    border-color: #FE5E00 !important;
+}

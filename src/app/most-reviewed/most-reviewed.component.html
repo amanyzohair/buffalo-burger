@@ -1,0 +1,37 @@
+<ion-header class="py-3 w-100">
+  <ion-title color="warning">
+    <ion-icon name="star"></ion-icon>
+    Most Reviewed
+  </ion-title>
+</ion-header>
+<div class="ion-padding-vertical" *ngFor="let pro of products$ | async" id="pro" #pro>
+  <ion-card class="" >
+    <ion-card-content >
+      <ion-img src="{{pro.payload.val().src}}" alt="" name="src" id="src" #src></ion-img>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-card-title id="title" #title name="title">{{pro.payload.val().title}}</ion-card-title>
+            <ion-card-subtitle class="" size="large" >
+              <ion-icon name="heart" color="danger" ></ion-icon>
+              <ion-label class="px-1">
+                    {{pro.payload.val().likes}}
+              </ion-label>
+            </ion-card-subtitle>
+          </ion-col>
+          <ion-col class="w-100 d-flex justify-content-end align-items-center">
+            <ion-card-subtitle class="" >
+              <ion-label id="price" #price name="price" class="px-2" color="success">
+                    {{pro.payload.val().price}} &#163;
+              </ion-label>
+            </ion-card-subtitle>
+            <ion-button fill="outline"  size="small" horizontal="end" color="success"
+            (click)="order(pro.key)">
+              <ion-icon name="add" ></ion-icon>
+            </ion-button>
+          </ion-col>
+          </ion-row></ion-grid>
+          Lorem ipsum dolor sit amet consectetur tenetur reicie deserunt rerum! Earum vel sed impedit !
+    </ion-card-content>
+  </ion-card>
+</div>

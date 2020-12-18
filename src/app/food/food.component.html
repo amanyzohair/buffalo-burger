@@ -1,0 +1,32 @@
+<ion-header class="py-3 w-100">
+  <ion-title color="warning">
+    <ion-icon name="fast-food-outline"></ion-icon>
+ Our Food Menu
+  </ion-title>
+</ion-header>
+  <ion-list *ngFor="let pro of products$ | async">
+    <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-card-title>{{pro.payload.val().title}}</ion-card-title>
+                <p class="text-muted">
+                  Lorem ipsum dolor sit amet consectetur tenetur  Earum vel sed  !
+                </p>
+                <ion-card-subtitle class="d-flex justify-content-start align-items-center" >
+                  <ion-button fill="outline" size="small" color="success" (click)="order(pro.key)">
+                    <ion-icon name="add" ></ion-icon>
+                  </ion-button>
+                  <ion-label class="px-2 " color="success">
+                    {{pro.payload.val().price}} &#163; &#163;
+              </ion-label>
+                </ion-card-subtitle>
+              </ion-col>
+              <ion-col class="">
+                <ion-img src="{{pro.payload.val().src}}" alt="" class="h-100 my-auto"></ion-img>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+      
+    </ion-item>
+  </ion-list>

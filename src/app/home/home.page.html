@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <ion-icon color="primary" name="menu" slot="start"></ion-icon>
+      <ion-img src="../../assets/imgs/burger/buffalo-logo.png" ></ion-img>
+    </ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="selectedSegment" (ionChange)="segmentChanged($event)" color="warning">
+      <ion-segment-button value="home">
+        <ion-label>Home</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="menu">
+        <ion-label>Food Menu</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="ordered">
+        <ion-label>Ordered</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+<div class="center h-100 d-flex justify-content-center">
+  <div *ngIf="selectedSegment == 'home'">
+    <app-most-reviewed></app-most-reviewed>
+
+
+  </div>
+  <div *ngIf="selectedSegment == 'menu'" class="w-100 h-100">
+    <app-food></app-food>
+  </div>
+  <div *ngIf="selectedSegment == 'ordered'">
+    <app-order></app-order>
+  </div>
+</div>
+
+<ion-fab vertical="bottom" horizontal="end" position="fixed" class="position-fixed" >
+  <ion-fab-button color="warning">
+    <ion-icon name="star-half"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="start">
+    <ion-button color="warning" class="" routerLink="/feed-back">
+      FeedBack
+    </ion-button>
+  </ion-fab-list>
+</ion-fab>
+
+</ion-content>
