@@ -1,5 +1,7 @@
 {
   "name": "posts-app",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
